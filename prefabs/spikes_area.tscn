@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwdviq6wuih6r"]
+
+[ext_resource type="Script" path="res://scripts/area_dano.gd" id="1_fxh62"]
+[ext_resource type="Texture2D" uid="uid://c3h0sis5yjqqv" path="res://Assets/assets_curso/Spike.png" id="2_oedhc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qykli"]
+
+[node name="spikes-area" type="Area2D"]
+position = Vector2(137, 240)
+collision_layer = 4
+script = ExtResource("1_fxh62")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qykli")
+
+[node name="spikes" type="Sprite2D" parent="."]
+texture_repeat = 2
+scale = Vector2(1.72, 1.44)
+texture = ExtResource("2_oedhc")
+region_enabled = true
+region_rect = Rect2(0, 8, 24, 8)

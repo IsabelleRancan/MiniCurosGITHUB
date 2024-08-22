@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkro7o51x5lun"]
+
+[ext_resource type="Script" path="res://scripts/plataforma_movel.gd" id="1_1ket6"]
+[ext_resource type="Texture2D" uid="uid://wphjqv2su3iy" path="res://prefabs/map/tileset.png" id="1_oyiaa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0v4n"]
+size = Vector2(44, 13)
+
+[node name="plataforma_movel" type="Node2D"]
+script = ExtResource("1_1ket6")
+veloci_movimento = 4.0
+
+[node name="plataforma" type="AnimatableBody2D" parent="."]
+collision_layer = 2
+collision_mask = 15
+
+[node name="Sprite2D" type="Sprite2D" parent="plataforma"]
+texture = ExtResource("1_oyiaa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_k0v4n")
+one_way_collision = true
