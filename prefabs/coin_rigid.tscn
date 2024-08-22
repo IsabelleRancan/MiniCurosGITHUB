@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbl8wfuayi3j6"]
+
+[ext_resource type="Script" path="res://scripts/coin_rigid.gd" id="1_4wshw"]
+[ext_resource type="PackedScene" uid="uid://c13b3wsrb08fb" path="res://prefabs/moeda.tscn" id="1_edh8q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x57m7"]
+radius = 8.0
+
+[node name="coin_rigid" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 2
+lock_rotation = true
+script = ExtResource("1_4wshw")
+
+[node name="moeda" parent="." instance=ExtResource("1_edh8q")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x57m7")
+
+[connection signal="tree_exited" from="moeda" to="." method="_on_moeda_tree_exited"]

@@ -1,0 +1,221 @@
+[gd_scene load_steps=13 format=3 uid="uid://gjypfahdpa4b"]
+
+[ext_resource type="Script" path="res://scripts/inimigo.gd" id="1_hdr3y"]
+[ext_resource type="Texture2D" uid="uid://v4erljk0juvb" path="res://Assets/Sprite Pack 2/4 - Robo Pumpkin/Walking (16 x 16).png" id="1_pw3qk"]
+[ext_resource type="Texture2D" uid="uid://cho4fxpt5m4jb" path="res://Assets/Sprite Pack 2/4 - Robo Pumpkin/Explosion_Poof (16 x 16).png" id="3_r44f6"]
+[ext_resource type="Texture2D" uid="uid://dqx3gn5lafxr0" path="res://Assets/Sprite Pack 2/4 - Robo Pumpkin/Standing (16 x 16).png" id="4_ri1kf"]
+[ext_resource type="PackedScene" uid="uid://btyhon7slc7qf" path="res://prefabs/hitbox.tscn" id="5_7jy5d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ulpu"]
+radius = 5.0
+height = 16.0
+
+[sub_resource type="Animation" id="Animation_52j2x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_pw3qk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textura:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("textura:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_eoldm"]
+resource_name = "andar"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_pw3qk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textura:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("textura:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_mjm1d"]
+resource_name = "dano"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_r44f6")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textura:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.554785),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("textura:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_oejtf"]
+resource_name = "parado"
+length = 0.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_ri1kf")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textura:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("textura:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n0eja"]
+_data = {
+"RESET": SubResource("Animation_52j2x"),
+"andar": SubResource("Animation_eoldm"),
+"dano": SubResource("Animation_mjm1d"),
+"parado": SubResource("Animation_oejtf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c7ck"]
+size = Vector2(14, 3)
+
+[node name="inimigo" type="CharacterBody2D" groups=["inimigos"]]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_hdr3y")
+
+[node name="textura" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_pw3qk")
+hframes = 2
+
+[node name="detector_parede" type="RayCast2D" parent="."]
+position = Vector2(0, -7)
+target_position = Vector2(-7, 0)
+collision_mask = 6
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7ulpu")
+debug_color = Color(0, 0.627451, 0.12549, 0.419608)
+
+[node name="anima" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n0eja")
+}
+autoplay = "andar"
+speed_scale = 0.3
+
+[node name="hitbox" parent="." instance=ExtResource("5_7jy5d")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_4c7ck")
+debug_color = Color(0.137255, 0.180392, 1, 0.419608)
+
+[connection signal="animation_finished" from="anima" to="." method="_on_anima_animation_finished"]
